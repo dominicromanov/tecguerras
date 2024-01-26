@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tec Guerras</title>
+  </head>
+  <body>
+    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+  background-color: #23232e;
+  color: #000;
+   overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: white;
+    text-decoration: none;
+    
+}
+a:hover {
+    opacity: 1;
+    transition: transform 0.3s ease-in;
+     
+} 
+
+@media (max-width:600px) {
+ .line {
+  font-size: 13px;
+ }}
+.line {
+        border-right: 2px solid rgba(255, 255, 255, 0.75);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Special Elite", monospace;
+        text-align: center;
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+.typing-animation {
+        animation: blinkCursor 500ms steps(40) infinite normal,
+          typing 4s steps(40) 1s normal both;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 16em;
+        }
+      }
+
+      @keyframes blinkCursor {
+        from {
+          border-right-color: rgba(255, 255, 255, 0.75);
+        }
+        to {
+          border-right-color: transparent;
+        }
+      }
+#header {
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #23232e;
+    
+}
+#menu {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+#menu a {
+    display: block;
+    padding: .5rem;
+}
+#btn {
+    display: none;
+}
+
+@media (max-width:600px) {
+    #btn {
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+    color: white;
+    visibility: hidden;    
+}
+  #ham {
+    border-top: 2px solid;
+    width: 20px;
+    position: relative;
+    left: 20%;
+    overflow-x: hidden;
+   
+    /*margin: auto;*/
+    
+
+  }
+  #ham::after,
+  #ham::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: white;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  #nav.active #ham {
+    border-top-color: transparent;
+  }
+  #nav.active #ham::before {
+    transform: rotate(135deg);
+  }
+  #nav.active #ham::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+    #menu {
+       /* display: none;*/
+       display: block;
+       position: absolute;
+       width: 100%;
+       right: 0;
+       top: 70px;
+       height: 0;
+       transition: .6s;
+       background: #23232e; 
+       z-index: 1000;
+       visibility: hidden;
+       overflow-y: hidden;
+    }
+    #nav.active #menu {
+        visibility: visible;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+    } 
+    #menu a{
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+
+/* slider card */
+
+
+
+.slide-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  padding: 40px 0;
+  background-size: 100%;
+  background-size:cover;
+  background-color: #23232e;
+  
+ 
+/*  background: url("https://www.kibrispdr.org/data/959/technology-background-images-hd-25.jpg") no-repeat center center;*/
+
+}
+.slide-content{
+  margin: 0 40px;
+  overflow:visible;
+  border-radius: 25px;
+}
+.card{
+  border-radius: 25px;
+  background-color: #FFF;
+}
+.image-content,
+
+.card1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+  margin: 10px;
+}
+.card2 {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.card3 {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.card4 {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.card5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content{
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #46506d;
+  border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #46506d;
+}
+.overlay::after{
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+.card-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #46506d;
+}
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+#button{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #46506d;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  outline: none;
+  transition:0.4s;
+}
+
+
+.swiper-navBtn{
+  color: #6E93f7;
+
+}
+.swiper-navBtn:hover{
+  color: #4070F4;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
+}
+.swiper-button-next{
+  right: 0;
+}
+.swiper-button-prev{
+  left: 0;
+}
+.swiper-pagination-bullet{
+  background-color: #6E93f7;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active{
+  background-color: #4070F4;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content{
+    margin: 0 10px;
+  }
+  .swiper-navBtn{
+    display: none;
+  }
+}
+
+
+.moreinfo {
+  display: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  padding: 20px;
+  text-align: left;
+  visibility: visible;
+  
+
+
+}
+
+.finish {
+  text-align: center;
+background-color: black;
+font-size: 70%;
+padding: 15%;
+
+
+    min-width:280px ;
+    max-width:3000px ;
+    margin: 10px;
+
+
+         
+}
+
+.text {
+  top: auto;
+  color: white;
+  font-size: 12px;  
+}
+.init {
+  font-size: 17px;
+}
+ 
+ .in2 {
+  display: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.10s;
+ }
+ .in3 {
+  display: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.10s;
+ }
+ .in4 {
+  display: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.10s;
+ }
+ .in5 {
+  display: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.10s;
+ }
+ </style>
+ 
+ 
+ 
+    
+ <header id="header">
+  <a class="line typing-animation" href="https://meuartigo.brasilescola.uol.com.br/historia-geral/as-duas-grandes-guerras-mundiais-o-legado-tecnologico.htm" target="_blank" rel="external">TECNOLOGIA NAS GUERRAS</a>
+  <nav id="nav">
+      <span id="ham"></span>
+      <button id="btn">Menu</button>
+      <ul id="menu">
+        
+          <li><a href="#c1">Internet</a></li>
+          <li><a href="#c2">Wi-Fi</a></li>
+          <li><a href="#c3">Sobre</a></li>
+          </ul>
+
+  </nav>
+
+</header>
+
+    
+    <div class="slide-container-swiper" >
+      <div class="slide-content">
+          <div class="card-wrapper swiper-wrapper">
+             
+              <div class="card swiper-slide">
+                  <div class="image-content">
+                      <span class="overlay"></span>
+
+                      <div class="card-image">
+                          <img src="https://www.kaspersky.com.br/content/pt-br/images/repository/isc/2021/encryption-1.jpg" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card1" >
+                      <h2 class="name">Criptografia</h2>
+                      <p class="description">A criptografia é um conjunto de técnicas pensadas para proteger uma informação de modo que apenas o emissor e receptor consigam compreendê-la</p>
+
+                      <button  class="btn1"id="button">Leia Mais</button>
+                  </div>
+                 
+                    <div class="moreinfo">
+                   <p class="path"> A criptografia é parte do mundo dos negócios e da rotina das pessoas atualmente — e tudo indica que se tornará ainda mais importante com o tempo. Esse processo elimina os riscos de terceiros acessarem dados e informações digitais, codificando-os.
+
+                      E sua eficiência é comprovada: entre as estratégias de segurança de dados, a criptografia é uma das mais populares.
+                      
+                      Não à toa, canais como WhatsApp e Telegram mantém as conversas de seus usuários protegidas sob uma forte camada de criptografia.
+                      
+                      Acontece que, após diversos casos de vazamento de dados ocorridos com empresas, a segurança dessas informações passou a ser prioridade para diversas companhias.
+                      
+                      A partir desses eventos, a Lei Geral de Proteção de Dados foi criada, visando proteger os dados pessoais dos usuários e exigindo que as empresas tenham esse cuidado.</p>
+                    </div>
+                  
+              </div>
+              <div class="card swiper-slide" >
+                  <div class="image-content">
+                      <span class="overlay"></span>
+
+                      <div class="card-image">
+                        <img src="https://img.olhardigital.com.br/wp-content/uploads/2021/08/IBM_PC_40_Anos_Abre.jpg" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card2" >
+                      <h2 class="name">Invenção do computador</h2>
+                      <p class="description">Ele foi criado em 1946, durante a Segunda Guerra Mundial, nos Estados Unidos, por John Eckert e John Mauchley.</p>
+
+                      <button class="btn2"id="button">Leia Mais</button>
+
+
+
+
+                  </div>
+                  <div class="in2">
+                    <p> O primeiro computador do mundo foi o ENIAC (pronuncia-se [ɛniæk]), abreviação de Electronic Numerical Integrator and Computer,  foi o primeiro computador de uso geral  eletrônico. Foi um computador digital completo capaz de ser reprogramado para resolver uma ampla gama de problemas de computação. ENIAC foi projetado para calcular tabelas de artilharia de balística do exército dos Estados Unidos no Laboratório de Pesquisa, mas seu primeiro uso foi em cálculos para a bomba de hidrogênio. Quando o ENIAC foi anunciado em 1946, foi anunciado na imprensa como um "gigante do cérebro". Ele vangloriou-se por ter uma velocidades mil vezes mais rápida que as máquinas eletro-mecânica, foi um salto no poder da computação,  nenhuma máquina tinha conseguido isso. Este poder matemático,  juntamente com programação de propósito geral, isso tinha animado muito os cientistas e industrias. Os inventores promoverão a propagação destas novas ideias através do ensino em uma série de palestras sobre arquitetura de computadores.</p>
+                     </div>
+ 
+ 
+ 
+                    </div>
+              <div class="card swiper-slide" >
+                  <div class="image-content">
+                      <span class="overlay"></span>
+
+                      <div class="card-image">
+                          <img src="https://www.infoescola.com/wp-content/uploads/2008/02/GPS.jpg" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card3" >
+                      <h2 class="name">Sistema de Navegação</h2>
+                      <p class="description">Trata-se de um sistema eletrônico de informação criado pelo exército norte-americano e que começou a ser usado por eles em 1972.</p>
+
+                      <button class="b3" id="button">Leia Mais</button>
+                  </div>
+
+                    <div class="in3">
+                      <p>Mas era muito mais uma base de teste do que uma ferramenta de auxílio. Muitos ajustes ainda seriam necessários antes de chegarmos à versão atual.
+
+                        Alguns anos e muitos estudos depois, em 1995, o Sistema de Posicionamento Global foi plenamente desenvolvido e considerado pronto para funcionar de maneira efetiva. Ainda bem, porque não saiu nada barato: o custo para colocar o sistema em pé foi de, aproximadamente 10 Bilhões de Dólares Americanos.
+                        
+                        Mas a verdade é que até o ano 2000 o Departamento de Defesa dos Estados Unidos dificultava, e muito, a utilização da transmissão destes sinais por civis e terceiros.</p>
+                    </div>
+
+
+
+
+
+
+
+
+
+              </div>
+              <div class="card swiper-slide"  id="c1">
+                  <div class="image-content">
+                      <span class="overlay"></span>
+
+                      <div class="card-image">
+                          <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/17876127/image/medium-d5f2aa5a775c69d9b7e351398ee681dc.jpg" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card4">
+                      <h2 class="name">Internet</h2>
+                      <p class="description">A Internet surgiu nos anos 60, na época da Guerra Fria, nos Estados Unidos. O Departamento de Defesa americano pretendia criar uma rede de comunicação de computadores em pontos estratégicos.</p>
+
+                      <button class="b4"id="button">Leia Mais</button>
+                  </div>
+                   <div class="in4">
+                    <p>" A intenção era descentralizar informações valiosas de forma que não fossem destruídas por bombardeios se estivessem localizadas em um único servidor.
+
+                      Assim, a ARPA (Advanced Research Projects Agency), uma das subdivisões do Departamento, criou uma rede conhecida por ARPANET, ligada por um backbone (“espinha dorsal”, isto é, estruturas de rede capazes de manipular grandes volumes de informações) que passava por debaixo da terra, o que dificultava sua destruição. O acesso à ARPANET era restrito a militares e pesquisadores, demorou chegar ao público em geral, pois temiam o mau uso da tecnologia por civis e países não-aliados."
+                    </p>
+                   </div>
+
+
+
+
+
+
+
+
+              </div>
+              <div class="card swiper-slide"  id="c2">
+                  <div class="image-content">
+                      <span class="overlay"></span>
+
+                      <div class="card-image">
+                          <img src="http://c.files.bbci.co.uk/16280/production/_118125709_gettyimages-1186955933.jpg" alt="" class="card-img">
+                      </div>
+                  </div>
+
+                  <div class="card5">
+                      <h2 class="name">Wi-Fi</h2>
+                      <p class="description">
+                          A chamada rede Wi-Fi é uma rede sem fio (também chamada de wireless) na qual podemos ter acesso à internet apenas por sinal de ondas de rádio.</p>
+
+                      <button class="b5"id="button">Leia Mais</button>
+                  </div>
+
+                  <div class="in5">
+                    <p>assim como as televisões e os celulares, não sendo necessária a utilização de fios conectores. As ondas de rádio são ondas eletromagnéticas (formadas pela combinação dos campos elétrico e magnético que se propagam no espaço perpendicularmente transportando energia) utilizadas pelas emissoras de rádio As redes Wi-Fi, utilizadas para fornecer acesso sem fio à internet, operam de forma análoga: um adaptador (sem fio) para computadores capta as informações e as traduz na forma de sinais de rádio, as quais são transmitidos com o auxílio de uma antena.
+
+                      O roteador (também sem fio), cuja função é realizar a distribuição dos sinais da rede, além de "escolher" o melhor caminho para o envio de um conjunto de dados, é quem recebe o sinal e o decodifica. É ele quem envia as informações para a internet usando uma conexão (com fios), a Ethernet, responsável pela interconexão de redes locais.
+
+                    </p>
+                  </div>
+
+
+              </div>
+             
+
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="swiper-button-next swiper-navBtn"></div>
+      <div class="swiper-button-prev swiper-navBtn"></div>
+      <div class="swiper-pagination"></div>
+  </div>
+
+
+  <header class="finish"id="c3">
+
+    <p class="text">Desenvolvido por: <a href="https://www.instagram.com/claudioh_bs/?theme=dark"target="_blank" rel="external">Claudio Henrique</a></p>
+    
+    
+    
+    </header>
+    
+    
+    
+    
+
+    <script>
+
+const button = document.getElementById("ham")
+
+function ApareceMenu() {
+    const nave = document.getElementById("nav")
+    nave.classList.toggle('active')
+    
+}
+button.addEventListener('click', ApareceMenu)
+// slider card
+
+
+//Ler mais
+
+
+var botao = document.querySelector(".btn1")
+var div = document.querySelector(".moreinfo")
+
+botao.addEventListener("click", function() {
+
+if(div.style.display === "block") {
+  div.style.display = "none"
+  botao.innerHTML = "Leia Mais"
+}else {
+  div.style.display = "block"
+  botao.innerHTML = "Leia Menos"
+}
+
+})
+
+
+var b = document.querySelector(".btn2")
+var div2 = document.querySelector(".in2")
+
+b.addEventListener("click", function() {
+
+if(div2.style.display === "block") {
+  div2.style.display = "none"
+  b.innerHTML = "Leia Mais"
+}else {
+  div2.style.display = "block"
+  b.innerHTML = "Leia Menos"
+}
+
+})
+
+var b3 = document.querySelector(".b3")
+var div3 = document.querySelector(".in3")
+
+b3.addEventListener("click", function() {
+
+if(div3.style.display === "block") {
+  div3.style.display = "none"
+  b3.innerHTML = "Leia Mais"
+}else {
+  div3.style.display = "block"
+  b3.innerHTML = "Leia Menos"
+}
+
+})
+
+var b4 = document.querySelector(".b4")
+var div4 = document.querySelector(".in4")
+
+b4.addEventListener("click", function() {
+
+if(div4.style.display === "block") {
+  div4.style.display = "none"
+  b4.innerHTML = "Leia Mais"
+}else {
+  div4.style.display = "block"
+  b4.innerHTML = "Leia Menos"
+}
+
+})
+
+
+var b5 = document.querySelector(".b5")
+var div5 = document.querySelector(".in5")
+
+b5.addEventListener("click", function() {
+
+if(div5.style.display === "block") {
+  div5.style.display = "none"
+  b5.innerHTML = "Leia Mais"
+}else {
+  div5.style.display = "block"
+  b5.innerHTML = "Leia Menos"
+}
+
+})
+
+
+</script>
+  </body>
+</html>
